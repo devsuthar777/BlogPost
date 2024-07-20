@@ -1,13 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import './style.css'
+import NavBar from './components/NavBar';
+import { Routes,Route } from 'react-router-dom';
+import BlogPostList from './components/BlogPostList';
+import BlogPostDetails from './components/BlogPostDetails';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-      hello
-      </header>
+    <div className="App-body h-screen w-screen">
+      <NavBar  />
+      <body>
+      <Routes>
+       <Route path="/" element ={<BlogPostList/>} />
+       <Route path="/post/:id" element ={<BlogPostDetails/>} />
+      </Routes>
+      </body>
     </div>
+
+    
   );
 }
 
