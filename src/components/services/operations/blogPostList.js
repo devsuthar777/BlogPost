@@ -1,14 +1,46 @@
-import axios from "axios"
 
-export const axiosInstance = axios.create({});
+const {apiConnector} = require('../apiConnector');
+const {BLOG_POST} = require('../apis');
 
-export const apiConnector = (method, url, bodyData, headers, params) => {
-    const token = localStorage.getItem("token");
-    return axiosInstance({
-        method:`${method}`,
-        url:`${url}`,
-        data: bodyData ? bodyData : null,
-        headers: headers ? headers : {"Authorisation": "Bearer "+token},
-        params: params ? params : null,
-    });
+
+export const retriveAllPost =  async (setAllPost,setTotalPost,setCurrPostList,setCurrPageNumber) => {
+    try
+    {
+        
+        const result = await apiConnector("GET",BLOG_POST.RETRIEVE_LIST);
+        console.log(result);
+        if(result.data.status==="ok")
+        {
+            let allPostList= result?.data?.articles != undefined ? result?.data?.articles : [];
+            let totalPost = result?.data?.totalResults != undefined ? result?.data?.totalResults : 0;
+            setAllPost(allPostList);
+            setTotalPost(allPostList.length);
+            
+            if(totalPost!=0  && totalPost>5)
+                {
+                    setCurrPostList(allPostList.slice(0,5));
+                    setCurrPageNumber(1);
+                }
+            else if(totalPost!=0  && totalPost<=5)
+                {
+                    setCurrPostList(allPostList);
+                    setCurrPageNumber(1);
+                }
+            else
+            {
+                setCurrPostList([]);
+            }
+
+        }
+    }
+    catch(error)
+    {
+        console.log(error);
+
+        
+        
+    }
+
 }
+
+

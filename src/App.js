@@ -8,14 +8,14 @@ import BlogPostDetails from './components/BlogPostDetails';
 
 function App() {
   return (
-    <div className="App-body h-screen w-screen">
+    <div className="App-body min-h-min w-screen">
       <NavBar  />
-      <body>
+    
       <Routes>
        <Route path="/" element ={<BlogPostList/>} />
        <Route path="/post/:id" element ={<BlogPostDetails/>} />
       </Routes>
-      </body>
+     
     </div>
 
     
