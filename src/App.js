@@ -14,8 +14,8 @@ function App() {
       <Routes>
        <Route path="/" element ={<BlogPostList/>} />
        <Route path="/post/:id" element ={<BlogPostDetails/>} />
+       <Route path='/*' element={<div className='text-white'>No Path found</div>}/>
       </Routes>
-     
     </div>
 
     
