@@ -1,14 +1,15 @@
 
 const {apiConnector} = require('../apiConnector');
 const {BLOG_POST} = require('../apis');
-
+const {data} = require('./blogPostDetails')
 
 export const retriveAllPost =  async (setAllPost,setTotalPost,setCurrPostList,setCurrPageNumber) => {
     try
     {
         
-        const result = await apiConnector("GET",BLOG_POST.RETRIEVE_LIST);
-        console.log(result);
+        //const result = await apiConnector("GET",BLOG_POST.RETRIEVE_LIST);
+       
+        const result = {data};
         if(result.data.status==="ok")
         {
             let allPostList= result?.data?.articles != undefined ? result?.data?.articles : [];
