@@ -54,7 +54,7 @@ const BlogPostList = () => {
     function navigateToPost(event){
 
         console.log(event.currentTarget.id);
-        navigate('/post/:pageId='+currPageNumber+"postId="+event.currentTarget.id,
+        navigate('/BlogPost/post/:pageId='+currPageNumber+"postId="+event.currentTarget.id,
             {state:{postId:event.currentTarget.id,currPostArray:currPostList}});
         
     }

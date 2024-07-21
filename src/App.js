@@ -12,9 +12,8 @@ function App() {
       <NavBar  />
     
       <Routes>
-       <Route path="/" element ={<BlogPostList/>} />
-       <Route path="/post/:id" element ={<BlogPostDetails/>} />
-       <Route path='/*' element={<div className='text-white'>No Path found</div>}/>
+       <Route path="/BlogPost" element ={<BlogPostList/>} />
+       <Route path="/BlogPost/post/:id" element ={<BlogPostDetails/>} />
       </Routes>
     </div>
 
