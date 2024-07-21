@@ -8,7 +8,7 @@ import BlogPostDetails from './components/BlogPostDetails';
 
 function App() {
   return (
-    <div className="App-body min-h-min w-screen">
+    <div className="App-body  w-full">
       <NavBar  />
     
       <Routes>
